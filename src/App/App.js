@@ -1,17 +1,19 @@
 import React  from 'react';
-import { Timer } from './Timer'
-import Form  from './Form'
+import Container from './Container';
+import Form  from './Form';
+import Header from './Header';
 
 function App() {
 
   
 
   return (
-    <div>
-      <Timer></Timer>
-      <Form>
-      </Form>
-    </div>
+    <Container>
+      
+      <Header title="Currency Calculator"></Header>
+      <Form/>
+      
+    </Container>
   );
 }
 

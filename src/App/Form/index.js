@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Result from '../Result';
-import { Loading, Failure } from './styled';
+import { StyledForm, Select, Button, Label, Input, Loading, Failure } from './styled';
 import { useRatesData } from './useRatesData';
+import { Timer } from '../Timer';
 
 const Form = () => {
 
@@ -16,7 +17,7 @@ const Form = () => {
         setResult({
             sourceAmount: +amount,
             fromCurrency,
-            targetAmount: (amount * fromCurrencyRate) / toCurrencyRate,
+            targetAmount: (amount * toCurrencyRate) / fromCurrencyRate ,
             toCurrency,
         });
     };
@@ -35,9 +36,9 @@ const Form = () => {
 
     return (
         
-        <form onSubmit={onSubmit}>
+        <StyledForm onSubmit={onSubmit}>
 
-            <header>Currency Converter</header>
+            
             {ratesData.state === "loading"
                 ? (
                     <Loading>
@@ -52,8 +53,9 @@ const Form = () => {
                     ) : (
                         <>
                             <p>
-                                <label>Calculate from:
-                                <select
+                                <Timer></Timer>
+                                <Label>Calculate from:
+                                <Select
                                         value={fromCurrency}
                                         onChange={({ target }) => setFromCurrency(target.value)}
                                         name="fromCurrency"
@@ -63,12 +65,12 @@ const Form = () => {
                                                 {currency}
                                             </option>
                                         )))}
-                                </select>
-                                </label>
+                                </Select>
+                                </Label>
                             </p>
                             <p>
-                                <label>Calculate to:
-                                <select
+                                <Label>Calculate to:
+                                <Select
                                         value={toCurrency}
                                         onChange={({ target }) => setToCurrency(target.value)}
                                         name="toCurrency"
@@ -78,12 +80,12 @@ const Form = () => {
                                                 {currency}
                                             </option>
                                         )))}
-                                </select>
-                                </label>
+                                </Select>
+                                </Label>
                             </p>
                             <p>
-                            <label>Write amount:
-                            <input
+                            <Label>Write amount:
+                            <Input
                                         value={amount}
                                         onChange={({ target }) => setAmount(target.value)}
                                         name="value"
@@ -92,17 +94,17 @@ const Form = () => {
                                         placeholder="Write amount here"
                                         required
                             />
-                            </label>
+                            </Label>
                             </p>
                             <p>
-                                <button>Convert!</button>
+                                <Button>Convert!</Button>
                             </p>
                             <Result result={result} />
                         </>   
                         )
                 )}
                 
-        </form>
+        </StyledForm>
 
     );
 };

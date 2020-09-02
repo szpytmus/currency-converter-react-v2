@@ -1,14 +1,15 @@
 import React from 'react';
+import { Wrapper } from './styled'
 
 const Result = ({ result }) => (
-    <div>
+    <Wrapper>
     {result !== undefined && (
         <>
-        {result.sourceAmount.toFixed(2)}&nbsp;{result.fromCurrency}&nbsp;={""}
+        {result.sourceAmount.toFixed(2)}&nbsp;{result.fromCurrency}&nbsp;=&nbsp;
         {result.targetAmount.toFixed(2)}&nbsp;{result.toCurrency}&nbsp;
         </>
     )}
-    </div>
+    </Wrapper>
 )
 
 export default Result;

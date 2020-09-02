@@ -8,4 +8,5 @@ export const Wrapper = styled.div`
     font-size: 10px;
     font-weight:bold;
     font-family:monospace;
+    margin-bottom: 20px;
 `

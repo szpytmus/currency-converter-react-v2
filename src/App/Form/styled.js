@@ -7,12 +7,17 @@ export const Failure = styled.p`
 color: ${({ theme }) => theme.color.crimson};
 `
 export const StyledForm = styled.form`
-    background-color:rgb(197, 196, 196);
+    background-color:${({ theme }) => theme.color.gallery};
     margin: auto;
     text-align: center;
     max-width:1000px;
-    border-bottom: 2px solid ${({ theme }) => theme.color.forestGreen};
+    border: 2px solid ${({ theme }) => theme.color.forestGreen};
     padding:20px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        grid-template-columns: 1fr;
+        max-width:800px;
+    }
 `;
 
 export const Select = styled.select`
@@ -20,6 +25,11 @@ export const Select = styled.select`
     color: ${({ theme }) => theme.color.forestGreen};
     border: 2px solid rgb(49, 138, 49);
     margin-left: 15px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        margin-left:50px;
+        width: 80%;
+    }
 `;
 
 export const Label = styled.label`
@@ -38,6 +48,11 @@ export const Button = styled.button`
     font-size: 16px;
     transition: 1s;
 
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        margin-left: 35px;
+        width: 80%;
+    }
+
     &:hover{
     transform:scale(1.1);
     filter: brightness(120%);
@@ -49,4 +64,9 @@ export const Input = styled.input`
     color: ${({ theme }) => theme.color.forestGreen};
     border: 2px solid rgb(49, 138, 49);
     margin-left: 15px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        margin-left: 50px;
+        width: 80%;
+    }
 `;
